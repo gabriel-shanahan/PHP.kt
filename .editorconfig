@@ -1,0 +1,7 @@
+root = true
+[*.{kt,kts}]
+indent_size=4
+insert_final_newline=true
+max_line_length=120
+# KtLint directive to allow wildcard imports and not check spaces around the .. operator
+disabled_rules=no-wildcard-imports,range-spacing
