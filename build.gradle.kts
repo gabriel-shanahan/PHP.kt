@@ -2,6 +2,7 @@ plugins {
     kotlin("jvm") version "1.3.61"
 
     `java-library`
+    jacoco
 
     id("org.jmailen.kotlinter") version "2.1.3"
     id("io.gitlab.arturbosch.detekt").version("1.2.2")
@@ -30,8 +31,9 @@ dependencies {
 
 tasks {
     test {
-        // Always run detekt (and through the klint wrapper, klint) when running tests
+        // Always run detekt (and through the klint wrapper, klint) and jacoco when running tests
         finalizedBy(detekt)
+        finalizedBy(jacocoTestReport)
 
         testLogging {
             // Make sure output from
