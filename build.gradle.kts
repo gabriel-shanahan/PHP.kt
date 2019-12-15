@@ -22,8 +22,10 @@ dependencies {
     implementation(platform("org.jetbrains.kotlin:kotlin-bom"))
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 
-    testImplementation("org.jetbrains.kotlin:kotlin-test")
-    testImplementation("org.jetbrains.kotlin:kotlin-test-junit")
+    testImplementation("io.kotlintest:kotlintest-runner-junit5:3.3.0")
+
+    // This is needed due to a known issue with KotlinTest: https://github.com/kotlintest/kotlintest/issues/639
+    testImplementation("org.slf4j", "slf4j-simple", "1.7.26")
 
     // Adds detekt wrapper around ktlint
     detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.0.1")
@@ -31,6 +33,7 @@ dependencies {
 
 tasks {
     test {
+        useJUnitPlatform()
         // Always run detekt (and through the klint wrapper, klint) and jacoco when running tests
         finalizedBy(detekt)
         finalizedBy(jacocoTestReport)
