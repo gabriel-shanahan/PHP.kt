@@ -8,7 +8,7 @@ import cz.php.kt.Node
  *
  * @param str The string value.
  */
-class String(private val str: kotlin.String) : Node() {
+data class String(private val str: kotlin.String) : Node() {
     override fun asPhp(): kotlin.String = "\"$str\""
 }
 

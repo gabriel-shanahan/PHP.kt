@@ -11,7 +11,7 @@ import cz.php.kt.Node
  *
  * @param name The name of the variable.
  */
-class Variable(private val name: String) : Node() {
+data class Variable(private val name: String) : Node() {
 
     /**
      * Performs checks on the variable name. The first letter must be either a letter or an underscore, the rest must be
