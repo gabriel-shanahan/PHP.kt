@@ -13,6 +13,6 @@ data class String(private val str: kotlin.String) : Node() {
 }
 
 /**
- * Helper function to convert kotlin strings to PHP string objects.
+ * Helper function to convert Kotlin strings to PHP String objects.
  */
 fun kotlin.String.asPhpObj(): String = String(this)
