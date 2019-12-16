@@ -8,11 +8,11 @@ import cz.php.kt.Node
  *
  * @param str The string value.
  */
-class PhpString(private val str: String) : Node() {
-    override fun asPhp(): String = "\"$str\""
+class String(private val str: kotlin.String) : Node() {
+    override fun asPhp(): kotlin.String = "\"$str\""
 }
 
 /**
  * Helper function to convert kotlin strings to PHP string objects.
  */
-fun String.asPhpObj(): PhpString = PhpString(this)
+fun kotlin.String.asPhpObj(): String = String(this)
