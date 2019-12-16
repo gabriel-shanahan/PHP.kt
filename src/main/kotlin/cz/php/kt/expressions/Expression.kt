@@ -9,7 +9,8 @@ import cz.php.kt.Node
  * When attempting to access children, an exception is thrown.
  */
 abstract class Expression : Node() {
-    final override val children get() = throw InvalidOperationException("Accessing children on an expression makes no sense.")
+    final override val children
+        get() = throw InvalidOperationException("Accessing children on an expression makes no sense.")
 
     /**
      * Thrown when children are accessed on an expression.

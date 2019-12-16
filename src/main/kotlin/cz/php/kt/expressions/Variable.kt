@@ -1,7 +1,5 @@
 package cz.php.kt.expressions
 
-import cz.php.kt.Node
-
 /**
  * Represents a PHP variable with the name [name].
  *
@@ -11,7 +9,7 @@ import cz.php.kt.Node
  *
  * @param name The name of the variable.
  */
-data class Variable(private val name: String) : Node() {
+data class Variable(private val name: String) : Expression() {
 
     /**
      * Performs checks on the variable name. The first letter must be either a letter or an underscore, the rest must be

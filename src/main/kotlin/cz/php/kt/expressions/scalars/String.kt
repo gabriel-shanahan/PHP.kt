@@ -1,6 +1,6 @@
 package cz.php.kt.expressions.scalars
 
-import cz.php.kt.Node
+import cz.php.kt.expressions.Expression
 
 /**
  * Represents a _double quoted_ string in PHP. Be aware that this means that things such as escape sequences, dollar
@@ -8,7 +8,7 @@ import cz.php.kt.Node
  *
  * @param str The string value.
  */
-data class String(private val str: kotlin.String) : Node() {
+data class String(private val str: kotlin.String) : Expression() {
     override fun asPhp(): kotlin.String = "\"$str\""
 }
 
