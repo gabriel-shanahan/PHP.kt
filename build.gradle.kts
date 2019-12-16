@@ -51,6 +51,7 @@ tasks {
         outputDirectory = "$buildDir/javadoc"
         configuration {
             includeNonPublic = true
+            reportUndocumented = true
         }
     }
 }
