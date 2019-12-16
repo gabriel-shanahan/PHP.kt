@@ -3,6 +3,8 @@ package cz.php.kt
 /**
  * The base class for all PHP tags. Has [children], which are Nodes themselves, and defines a render() method which
  * is responsible for generating the PHP code.
+ *
+ * @param children The children of this Node.
  */
 abstract class Node(protected val children: MutableList<Node> = mutableListOf()) {
 
