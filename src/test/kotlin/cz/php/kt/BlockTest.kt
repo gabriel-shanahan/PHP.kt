@@ -3,13 +3,13 @@ package cz.php.kt
 import io.kotlintest.shouldBe
 import io.kotlintest.specs.StringSpec
 
-class NodeTest : StringSpec({
+class BlockTest : StringSpec({
     class StringNode(val name: String) : Node(emptyList()) {
-        override fun renderSelf(): String = name
+        override fun render(): String = name
     }
 
-    class MockNode(val name: String, children: List<Node>) : Node(children) {
-        override fun renderSelf(): String = name
+    class MockFor(children: List<Node>) : Block(children) {
+        override fun renderHead(): String = "for()"
     }
 
     "A node should indent it's children properly" {
@@ -35,9 +35,9 @@ class NodeTest : StringSpec({
             StringNode(it.toString())
         }
 
-        val mockFor = MockNode("for()", strings)
+        val mockFor = MockFor(strings)
 
-        mockFor.toString() shouldBe expectedFlat
-        MockNode("for()", listOf(mockFor, StringNode("1"))).toString() shouldBe expectedNested
+        mockFor.render() shouldBe expectedFlat
+        MockFor(listOf(mockFor, StringNode("1"))).render() shouldBe expectedNested
     }
 })
