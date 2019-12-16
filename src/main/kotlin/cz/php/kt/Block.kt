@@ -3,7 +3,7 @@ package cz.php.kt
 /**
  * Block implements a default render() method which prints children out as a { ... } block indented with 4 spaces.
  */
-abstract class Block(children: List<Node>) : Node(children) {
+abstract class Block : Node() {
 
     /**
      * Must be overridden by subclasses. This is where the "head" of the statement/expression is rendered, eg. in a for

@@ -4,11 +4,17 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.StringSpec
 
 class BlockTest : StringSpec({
-    class StringNode(val name: String) : Node(emptyList()) {
+    class StringNode(val name: String) : Node(mutableListOf()) {
         override fun asPhp(): String = name
     }
 
-    class MockFor(children: List<Node>) : Block(children) {
+    class MockFor(children: MutableList<out Node>) : Block() {
+        init {
+            children.forEach {
+                +it
+            }
+        }
+
         override fun renderHead(): String = "for()"
     }
 
@@ -31,13 +37,13 @@ class BlockTest : StringSpec({
             |    1
             |}""".trimMargin()
 
-        val strings = List(2) {
+        val strings = MutableList(2) {
             StringNode(it.toString())
         }
 
         val mockFor = MockFor(strings)
 
         mockFor.asPhp() shouldBe expectedFlat
-        MockFor(listOf(mockFor, StringNode("1"))).asPhp() shouldBe expectedNested
+        MockFor(mutableListOf(mockFor, StringNode("1"))).asPhp() shouldBe expectedNested
     }
 })
