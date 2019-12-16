@@ -8,7 +8,7 @@ class BlockTest : StringSpec({
         override fun asPhp(): String = name
     }
 
-    class MockFor(children: MutableList<out Node>) : Block() {
+    class MockFor(children: MutableList<out Node> = mutableListOf()) : Block() {
         init {
             children.forEach {
                 +it
@@ -18,13 +18,21 @@ class BlockTest : StringSpec({
         override fun renderHead(): String = "for()"
     }
 
-    "A block should indent it's children properly" {
+    "A block should indent its children properly" {
         val expectedFlat = """
             |for()
             |{
             |    0
             |    1
             |}""".trimMargin()
+
+        val strings = MutableList(2) {
+            StringNode(it.toString())
+        }
+
+        val mockFor = MockFor(strings)
+
+        mockFor.asPhp() shouldBe expectedFlat
 
         val expectedNested = """
             |for()
@@ -37,13 +45,9 @@ class BlockTest : StringSpec({
             |    1
             |}""".trimMargin()
 
-        val strings = MutableList(2) {
-            StringNode(it.toString())
-        }
-
-        val mockFor = MockFor(strings)
-
-        mockFor.asPhp() shouldBe expectedFlat
         MockFor(mutableListOf(mockFor, StringNode("1"))).asPhp() shouldBe expectedNested
+
+        val expectedEmpty = """for()"""
+        MockFor().asPhp() shouldBe expectedEmpty
     }
 })

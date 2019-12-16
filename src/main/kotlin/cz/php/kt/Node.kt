@@ -20,6 +20,6 @@ abstract class Node(protected val children: MutableList<Node> = mutableListOf())
 }
 
 /**
- * Helper method that allows concise rendering of children.
+ * Helper method that allows concise rendering of lists of Nodes.
  */
 fun List<Node>.asPhp(): String = joinToString("\n", transform = Node::asPhp)
