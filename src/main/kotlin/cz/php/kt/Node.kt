@@ -6,7 +6,7 @@ package cz.php.kt
  *
  * @param children The children of this Node.
  */
-abstract class Node(protected val children: MutableList<Node> = mutableListOf()) {
+abstract class Node(protected open val children: MutableList<Node> = mutableListOf()) {
 
     /**
      * Generates the PHP code. Must be overridden by subclasses.
