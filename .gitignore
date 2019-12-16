@@ -6,3 +6,6 @@ build
 
 # Ignore IDEA files
 .idea
+
+# Even though this should be fixed (https://github.com/kotlintest/kotlintest/issues/720), it still appears sometimes
+.kotlintest

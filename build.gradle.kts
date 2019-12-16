@@ -22,7 +22,7 @@ dependencies {
     implementation(platform("org.jetbrains.kotlin:kotlin-bom"))
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 
-    testImplementation("io.kotlintest:kotlintest-runner-junit5:3.3.0")
+    testImplementation("io.kotlintest:kotlintest-runner-junit5:3.3.2")
 
     // This is needed due to a known issue with KotlinTest: https://github.com/kotlintest/kotlintest/issues/639
     testImplementation("org.slf4j", "slf4j-simple", "1.7.26")
