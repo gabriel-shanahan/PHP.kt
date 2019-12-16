@@ -5,14 +5,14 @@ import io.kotlintest.specs.StringSpec
 
 class BlockTest : StringSpec({
     class StringNode(val name: String) : Node(emptyList()) {
-        override fun render(): String = name
+        override fun asPhp(): String = name
     }
 
     class MockFor(children: List<Node>) : Block(children) {
         override fun renderHead(): String = "for()"
     }
 
-    "A node should indent it's children properly" {
+    "A block should indent it's children properly" {
         val expectedFlat = """
             |for()
             |{
@@ -37,7 +37,7 @@ class BlockTest : StringSpec({
 
         val mockFor = MockFor(strings)
 
-        mockFor.render() shouldBe expectedFlat
-        MockFor(listOf(mockFor, StringNode("1"))).render() shouldBe expectedNested
+        mockFor.asPhp() shouldBe expectedFlat
+        MockFor(listOf(mockFor, StringNode("1"))).asPhp() shouldBe expectedNested
     }
 })

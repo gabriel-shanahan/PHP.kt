@@ -16,7 +16,7 @@ abstract class Block(children: List<Node>) : Node(children) {
      */
     private fun renderChildren(): String = "{\n" +
         children
-            .joinToString("\n", transform = Node::render)
+            .joinToString("\n", transform = Node::asPhp)
             .prependIndent() +
         "\n}"
 
@@ -24,5 +24,5 @@ abstract class Block(children: List<Node>) : Node(children) {
      * Combines [renderHead] and [renderChildren] to produce a string in the form "<renderHead> { <[children]> } with
      * appropriate newlines.
      */
-    override fun render(): String = renderHead() + if (children.isNotEmpty()) "\n" + renderChildren() else ""
+    override fun asPhp(): String = renderHead() + if (children.isNotEmpty()) "\n" + renderChildren() else ""
 }
