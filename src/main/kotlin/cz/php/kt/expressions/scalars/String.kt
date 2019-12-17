@@ -9,7 +9,7 @@ import cz.php.kt.expressions.Expression
  * @param str The string value.
  */
 data class String(private val str: kotlin.String) : Expression() {
-    override fun asPhp(): kotlin.String = "\"$str\""
+    override fun toPhpStr(): kotlin.String = "\"$str\""
 }
 
 /**

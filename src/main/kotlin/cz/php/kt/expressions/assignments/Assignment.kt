@@ -10,7 +10,7 @@ import cz.php.kt.expressions.Variable
  * @param rhs The right hand side [Expression]
  */
 data class Assignment(private val lhs: Variable, private val rhs: Expression) : Expression() {
-    override fun asPhp(): String = lhs.asPhp() + " = " + rhs.asPhp()
+    override fun toPhpStr(): String = lhs.toPhpStr() + " = " + rhs.toPhpStr()
 }
 
 /**

@@ -8,8 +8,8 @@ import io.kotlintest.tables.row
 
 class VariableTest : StringSpec({
     "Variables are printed correctly" {
-        Variable("test1").asPhp() shouldBe "\$test1"
-        Variable("_test1").asPhp() shouldBe "\$_test1"
+        Variable("test1").toPhpStr() shouldBe "\$test1"
+        Variable("_test1").toPhpStr() shouldBe "\$_test1"
     }
 
     "Variable names are checked accordingly" {

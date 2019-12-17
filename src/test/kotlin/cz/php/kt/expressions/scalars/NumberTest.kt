@@ -7,11 +7,11 @@ import io.kotlintest.specs.StringSpec
 class NumberTest : StringSpec({
     "Numbers are printed as-is" {
         assertAll { num: Double ->
-            Number(num).asPhp() shouldBe "$num"
+            Number(num).toPhpStr() shouldBe "$num"
         }
 
         assertAll { num: Long ->
-            Number(num).asPhp() shouldBe "$num"
+            Number(num).toPhpStr() shouldBe "$num"
         }
     }
 

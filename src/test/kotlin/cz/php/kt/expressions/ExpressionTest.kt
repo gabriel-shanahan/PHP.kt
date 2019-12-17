@@ -10,7 +10,7 @@ class ExpressionTest : StringSpec({
     "Accessing children on Expressions throws" {
         shouldThrow<Expression.InvalidOperationException> {
             object : Expression() {
-                override fun asPhp(): String = "MockExpression"
+                override fun toPhpStr(): String = "MockExpression"
                 fun returnChildren(): MutableList<Node> = children
             }.returnChildren()
         }.message shouldBe "Accessing children on an expression makes no sense."

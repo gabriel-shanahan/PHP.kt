@@ -8,7 +8,7 @@ import io.kotlintest.specs.StringSpec
 class AssignmentTest : StringSpec({
 
     "Assignments render correctly" {
-        Assignment("x".asPhpVar(), "x".asPhpObj()).asPhp() shouldBe "\$x = \"x\""
+        Assignment("x".asPhpVar(), "x".asPhpObj()).toPhpStr() shouldBe "\$x = \"x\""
     }
 
     "Helper function creates assignments correctly" {

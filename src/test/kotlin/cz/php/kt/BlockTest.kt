@@ -5,7 +5,7 @@ import io.kotlintest.specs.StringSpec
 
 class BlockTest : StringSpec({
     class StringNode(val name: String) : Node(mutableListOf()) {
-        override fun asPhp(): String = name
+        override fun toPhpStr(): String = name
     }
 
     class MockFor(children: MutableList<out Node> = mutableListOf()) : Block() {
@@ -32,7 +32,7 @@ class BlockTest : StringSpec({
 
         val mockFor = MockFor(strings)
 
-        mockFor.asPhp() shouldBe expectedFlat
+        mockFor.toPhpStr() shouldBe expectedFlat
 
         val expectedNested = """
             |for()
@@ -45,9 +45,9 @@ class BlockTest : StringSpec({
             |    1
             |}""".trimMargin()
 
-        MockFor(mutableListOf(mockFor, StringNode("1"))).asPhp() shouldBe expectedNested
+        MockFor(mutableListOf(mockFor, StringNode("1"))).toPhpStr() shouldBe expectedNested
 
         val expectedEmpty = """for()"""
-        MockFor().asPhp() shouldBe expectedEmpty
+        MockFor().toPhpStr() shouldBe expectedEmpty
     }
 })

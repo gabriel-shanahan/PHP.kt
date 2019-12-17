@@ -24,7 +24,7 @@ data class Variable(private val name: String) : Expression() {
         }
     }
 
-    override fun asPhp(): String = "\$$name"
+    override fun toPhpStr(): String = "\$$name"
 
     /**
      * Thrown when an invalid variable name is passed to Variable constructor.

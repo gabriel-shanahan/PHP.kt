@@ -16,7 +16,7 @@ abstract class Block : Node() {
      */
     private fun renderChildren(): String = "{\n" +
         children
-            .joinToString("\n", transform = Node::asPhp)
+            .joinToString("\n", transform = Node::toPhpStr)
             .prependIndent() +
         "\n}"
 
@@ -24,5 +24,5 @@ abstract class Block : Node() {
      * Combines [renderHead] and [renderChildren] to produce a string in the form "<renderHead> { <[children]> } with
      * appropriate newlines.
      */
-    override fun asPhp(): String = renderHead() + if (children.isNotEmpty()) "\n" + renderChildren() else ""
+    override fun toPhpStr(): String = renderHead() + if (children.isNotEmpty()) "\n" + renderChildren() else ""
 }

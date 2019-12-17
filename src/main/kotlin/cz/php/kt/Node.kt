@@ -11,7 +11,7 @@ abstract class Node(protected open val children: MutableList<Node> = mutableList
     /**
      * Generates the PHP code. Must be overridden by subclasses.
      */
-    abstract fun asPhp(): String
+    abstract fun toPhpStr(): String
 
     /**
      * Helper method that allows concise adding of children to a parent Node in builder functions.
@@ -24,4 +24,4 @@ abstract class Node(protected open val children: MutableList<Node> = mutableList
 /**
  * Helper method that allows concise rendering of lists of Nodes.
  */
-fun List<Node>.asPhp(): String = joinToString("\n", transform = Node::asPhp)
+fun List<Node>.toPhpStr(): String = joinToString("\n", transform = Node::toPhpStr)

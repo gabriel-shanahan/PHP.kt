@@ -9,7 +9,7 @@ import kotlin.String
  * @param value The value
  */
 data class Number(private val value: kotlin.Number) : Expression() {
-    override fun asPhp(): String = value.toString()
+    override fun toPhpStr(): String = value.toString()
 }
 
 /**

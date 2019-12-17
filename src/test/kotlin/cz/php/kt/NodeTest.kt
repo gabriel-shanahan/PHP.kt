@@ -5,13 +5,13 @@ import io.kotlintest.specs.StringSpec
 
 class NodeTest : StringSpec({
     class StringNode(val name: String) : Node(mutableListOf()) {
-        override fun asPhp(): String = name
+        override fun toPhpStr(): String = name
     }
 
     "Rendering a list of nodes renders each one on a separate line" {
         val nodes = List(3) { StringNode(it.toString()) }
 
-        nodes.asPhp() shouldBe "0\n1\n2"
+        nodes.toPhpStr() shouldBe "0\n1\n2"
     }
 
     class Container(children: List<Node>) : Block() {
@@ -33,6 +33,6 @@ class NodeTest : StringSpec({
             |    World
             |}""".trimMargin()
 
-        code.asPhp() shouldBe expected
+        code.toPhpStr() shouldBe expected
     }
 })

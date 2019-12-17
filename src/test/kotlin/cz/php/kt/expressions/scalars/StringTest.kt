@@ -7,7 +7,7 @@ import io.kotlintest.specs.StringSpec
 class StringTest : StringSpec({
     "Strings are printed as-is" {
         assertAll { str: kotlin.String ->
-            String(str).asPhp() shouldBe "\"$str\""
+            String(str).toPhpStr() shouldBe "\"$str\""
         }
     }
 

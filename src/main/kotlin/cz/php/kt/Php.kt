@@ -8,7 +8,7 @@ class Php : Node() {
     /**
      * Generates the basic "<?php" tag before a list of Nodes.
      */
-    override fun asPhp(): String = "<?php\n\n${children.asPhp()}"
+    override fun toPhpStr(): String = "<?php\n\n${children.toPhpStr()}"
 }
 
 /**
