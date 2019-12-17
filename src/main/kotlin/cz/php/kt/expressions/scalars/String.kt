@@ -13,6 +13,6 @@ data class String(private val str: kotlin.String) : Expression() {
 }
 
 /**
- * Helper function to convert Kotlin strings to PHP String objects.
+ * Helper property to convert Kotlin strings to PHP String objects.
  */
-fun kotlin.String.asPhpObj(): String = String(this)
+val kotlin.String.phpObj get() = String(this)

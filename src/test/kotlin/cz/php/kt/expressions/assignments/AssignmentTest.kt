@@ -1,17 +1,17 @@
 package cz.php.kt.expressions.assignments
 
-import cz.php.kt.expressions.asPhpVar
-import cz.php.kt.expressions.scalars.asPhpObj
+import cz.php.kt.expressions.phpVar
+import cz.php.kt.expressions.scalars.phpObj
 import io.kotlintest.shouldBe
 import io.kotlintest.specs.StringSpec
 
 class AssignmentTest : StringSpec({
 
     "Assignments render correctly" {
-        Assignment("x".asPhpVar(), "x".asPhpObj()).toPhpStr() shouldBe "\$x = \"x\""
+        Assignment("x".phpVar, "x".phpObj).toPhpStr() shouldBe "\$x = \"x\""
     }
 
     "Helper function creates assignments correctly" {
-        ("x".asPhpVar() `=` 3.14.asPhpObj()) shouldBe Assignment("x".asPhpVar(), 3.14.asPhpObj())
+        ("x".phpVar `=` 3.14.phpObj) shouldBe Assignment("x".phpVar, 3.14.phpObj)
     }
 })

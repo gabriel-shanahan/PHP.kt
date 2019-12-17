@@ -15,4 +15,4 @@ data class Number(private val value: kotlin.Number) : Expression() {
 /**
  * Helper function to convert Kotlin numbers to PHP Number objects.
  */
-fun kotlin.Number.asPhpObj() = Number(this)
+val kotlin.Number.phpObj get() = Number(this)

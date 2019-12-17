@@ -1,21 +1,21 @@
 package cz.php.kt.statements.blocks.branching
 
-import cz.php.kt.expressions.asPhpVar
+import cz.php.kt.expressions.phpVar
 import cz.php.kt.expressions.assignments.`=`
-import cz.php.kt.expressions.scalars.asPhpObj
+import cz.php.kt.expressions.scalars.phpObj
 import io.kotlintest.shouldBe
 import io.kotlintest.specs.StringSpec
 
 class IfTest : StringSpec({
 
     fun If.createChildren(): If {
-        +("y".asPhpVar() `=` "x is true".asPhpObj())
-        +("z".asPhpVar() `=` "x is true".asPhpObj())
+        +("y".phpVar `=` "x is true".phpObj)
+        +("z".phpVar `=` "x is true".phpObj)
         return this
     }
 
     "if renders correctly" {
-        val code = If("x".asPhpVar())
+        val code = If("x".phpVar)
             .createChildren()
             .toPhpStr()
 

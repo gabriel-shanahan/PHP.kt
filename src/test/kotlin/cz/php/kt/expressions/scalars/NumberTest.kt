@@ -17,11 +17,11 @@ class NumberTest : StringSpec({
 
     "Kotlin numbers are correctly converted to PHP Number objects" {
         assertAll { num: Double ->
-            num.asPhpObj() shouldBe Number(num)
+            num.phpObj shouldBe Number(num)
         }
 
         assertAll { num: Long ->
-            num.asPhpObj() shouldBe Number(num)
+            num.phpObj shouldBe Number(num)
         }
     }
 })

@@ -33,6 +33,6 @@ class VariableTest : StringSpec({
     }
 
     "Variables can be created directly from strings" {
-        "x".asPhpVar() shouldBe Variable("x")
+        "x".phpVar shouldBe Variable("x")
     }
 })

@@ -13,7 +13,7 @@ class StringTest : StringSpec({
 
     "Kotlin strings are correctly converted to PHP String objects" {
         assertAll { str: kotlin.String ->
-            str.asPhpObj() shouldBe String(str)
+            str.phpObj shouldBe String(str)
         }
     }
 })
