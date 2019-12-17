@@ -3,8 +3,8 @@ package cz.php.kt.expressions
 import cz.php.kt.Node
 
 /**
- * Represents a Node that does not have any children, i.e. it is not a block. This does not mean it cannot have
- * attributes - a function call is an expression, for example.
+ * Represents a Node that _evaluates to a specific value in PHP_. An Expression does not have any children, i.e. it is
+ * not a block. This does not mean it cannot have attributes - a function call is an expression, for example.
  *
  * When attempting to access children, an exception is thrown.
  */
