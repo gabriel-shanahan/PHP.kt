@@ -33,3 +33,8 @@ data class Variable(private val name: String) : Expression() {
      */
     class InvalidVariableName(msg: String) : Throwable(msg)
 }
+
+/**
+ * Helper function to convert Kotlin strings to PHP Variable objects.
+ */
+fun String.asPhpVar(): Variable = Variable(this)

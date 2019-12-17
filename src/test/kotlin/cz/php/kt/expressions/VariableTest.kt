@@ -31,4 +31,8 @@ class VariableTest : StringSpec({
             }.message shouldBe msg
         }
     }
+
+    "Variables can be created directly from strings" {
+        "x".asPhpVar() shouldBe Variable("x")
+    }
 })
