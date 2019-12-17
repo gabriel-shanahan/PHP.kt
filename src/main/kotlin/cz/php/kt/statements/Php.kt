@@ -1,10 +1,12 @@
-package cz.php.kt
+package cz.php.kt.statements
+
+import cz.php.kt.toPhpStr
 
 /**
  * Represents the top-level node of any PHP code. Other classes define the PHP DSL by adding extension methods to this
  * object, which correspond to the code they generate.
  */
-class Php : Node() {
+class Php : Statement() {
     /**
      * Generates the basic "<?php" tag before a list of Nodes.
      */

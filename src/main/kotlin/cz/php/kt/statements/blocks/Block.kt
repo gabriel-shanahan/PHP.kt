@@ -24,7 +24,7 @@ abstract class Block : Statement() {
         "\n}"
 
     /**
-     * Combines [renderHead] and [renderChildren] to produce a string in the form "<renderHead> { <[children]> } with
+     * Combines [renderHead] and [renderChildren] to produce a string in the form "<renderHead> { <[cz.php.kt.Node.children]> } with
      * appropriate newlines.
      */
     override fun toPhpStr(): String = renderHead() + if (children.isNotEmpty()) "\n" + renderChildren() else ""
