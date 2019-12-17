@@ -14,10 +14,6 @@ class Php : Statement() {
 }
 
 /**
- * DSL function to create a piece of code wrapped prepended with "<?php". The rest of the code is generated in [exec].
+ * DSL function to create a piece of code prepended with "<?php". The rest of the code is generated in [exec].
  */
-inline fun php(exec: Php.() -> Unit): Php {
-    val php = Php()
-    php.exec()
-    return php
-}
+inline fun php(exec: Php.() -> Unit) = Php().apply(exec)
