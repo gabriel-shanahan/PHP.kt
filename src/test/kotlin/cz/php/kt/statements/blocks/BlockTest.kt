@@ -1,5 +1,6 @@
-package cz.php.kt
+package cz.php.kt.statements.blocks
 
+import cz.php.kt.Node
 import io.kotlintest.shouldBe
 import io.kotlintest.specs.StringSpec
 

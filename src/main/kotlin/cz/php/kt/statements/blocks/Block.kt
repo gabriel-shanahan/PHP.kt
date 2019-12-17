@@ -1,9 +1,12 @@
-package cz.php.kt
+package cz.php.kt.statements.blocks
+
+import cz.php.kt.Node
+import cz.php.kt.statements.Statement
 
 /**
  * Block implements a default render() method which prints children out as a { ... } block indented with 4 spaces.
  */
-abstract class Block : Node() {
+abstract class Block : Statement() {
 
     /**
      * Must be overridden by subclasses. This is where the "head" of the statement/expression is rendered, eg. in a for
