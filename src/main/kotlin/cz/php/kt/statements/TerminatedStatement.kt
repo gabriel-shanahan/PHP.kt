@@ -7,6 +7,6 @@ import cz.php.kt.expressions.Expression
  *
  * @param expression The expression to be terminated.
  */
-class TerminatedStatement(private val expression: Expression) : Statement() {
+data class TerminatedStatement(private val expression: Expression) : Statement() {
     override fun toPhpStr(): String = expression.toPhpStr() + ';'
 }
