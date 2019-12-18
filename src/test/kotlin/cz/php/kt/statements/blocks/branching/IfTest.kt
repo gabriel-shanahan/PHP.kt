@@ -1,8 +1,9 @@
 package cz.php.kt.statements.blocks.branching
 
-import cz.php.kt.expressions.phpVar
 import cz.php.kt.expressions.assignments.`=`
+import cz.php.kt.expressions.phpVar
 import cz.php.kt.expressions.scalars.phpObj
+import cz.php.kt.statements.php
 import io.kotlintest.shouldBe
 import io.kotlintest.specs.StringSpec
 
@@ -25,6 +26,25 @@ class IfTest : StringSpec({
             |    ${'$'}y = "x is true";
             |    ${'$'}z = "x is true";
             |}""".trimMargin()
+
+        code shouldBe expected
+    }
+
+    "the if helper function works correctly" {
+        val code = php {
+            +`if`("x".phpVar) {
+                +("y".phpVar `=` 5.phpObj)
+            }
+        }.toPhpStr()
+
+        val expected = """
+            |<?php
+            |
+            |if(${'$'}x)
+            |{
+            |    ${'$'}y = 5;
+            |}
+        """.trimMargin()
 
         code shouldBe expected
     }
