@@ -31,7 +31,7 @@ class IfTest : StringSpec({
 
     "the if helper function works correctly" {
         val code = php {
-            +`if`("x".phpVar) {
+            `if`("x".phpVar) {
                 +("y".phpVar `=` 5.phpObj)
             }
         }.toPhpStr()

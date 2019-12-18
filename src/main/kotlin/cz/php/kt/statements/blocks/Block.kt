@@ -36,9 +36,11 @@ abstract class Block(protected val children: MutableList<Node> = mutableListOf()
      * Appends the [Node] to the children of the Block in whose context this method is called. When appending an
      * [Expression], it is automatically transformed to a TerminatedStatement (to render the semicolon at the end).
      */
-    operator fun Node.unaryPlus() = this@Block.children.add(
-        if (this is Expression) TerminatedStatement(this) else this
-    )
+    operator fun Node.unaryPlus() {
+        this@Block.children.add(
+            if (this is Expression) TerminatedStatement(this) else this
+        )
+    }
 }
 
 /**

@@ -1,7 +1,7 @@
 package cz.php.kt.statements.blocks.branching
 
 import cz.php.kt.expressions.Expression
-import cz.php.kt.statements.Statement
+import cz.php.kt.statements.blocks.Block
 
 /**
  * The if statement
@@ -16,4 +16,4 @@ class If(condition: Expression) : BranchingStatement(condition) {
  * @param condition The condition of the if statement
  * @param exec The bod of the if statement
  */
-inline fun Statement.`if`(condition: Expression, exec: If.() -> Unit) = If(condition).apply(exec)
+inline fun Block.`if`(condition: Expression, exec: If.() -> Unit) = +If(condition).apply(exec)
