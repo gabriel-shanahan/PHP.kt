@@ -1,11 +1,13 @@
 package cz.php.kt.expressions
 
 /**
- * Represents a PHP variable with the name [name].
+ * A PHP variable with the name [name].
  *
- * Because PHP is messed-up, any byte sequence constitutes a valid PHP name using the ${} syntax. We consider this to be
- * borderline offensive black magic and do not support it, instead permitting only names consisting of alphanumeric
- * characters or underscores, with the additional condition that the first character cannot be a number.
+ * Because PHP is messed up, any byte sequence constitutes a valid PHP name using the ${} syntax. We consider this to
+ * be black magic and do not support it, instead permitting only names consisting of alphanumeric characters or
+ * underscores, with the additional condition that the first character cannot be a number.
+ *
+ * When an invalid name is passed, an exception is thrown.
  *
  * @param name The name of the variable.
  */
@@ -35,6 +37,6 @@ data class Variable(private val name: String) : Expression() {
 }
 
 /**
- * Helper proprety to convert Kotlin strings to PHP Variable objects.
+ * Helper property to convert Kotlin strings to PHP Variable objects.
  */
 val String.phpVar get() = Variable(this)

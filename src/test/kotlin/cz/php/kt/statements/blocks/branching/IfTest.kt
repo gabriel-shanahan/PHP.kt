@@ -3,7 +3,7 @@ package cz.php.kt.statements.blocks.branching
 import cz.php.kt.expressions.assignments.`=`
 import cz.php.kt.expressions.phpVar
 import cz.php.kt.expressions.scalars.phpObj
-import cz.php.kt.statements.php
+import cz.php.kt.statements.blocks.php
 import io.kotlintest.shouldBe
 import io.kotlintest.specs.StringSpec
 
@@ -21,8 +21,7 @@ class IfTest : StringSpec({
             .toPhpStr()
 
         val expected = """
-            |if(${'$'}x)
-            |{
+            |if(${'$'}x) {
             |    ${'$'}y = "x is true";
             |    ${'$'}z = "x is true";
             |}""".trimMargin()
@@ -40,8 +39,7 @@ class IfTest : StringSpec({
         val expected = """
             |<?php
             |
-            |if(${'$'}x)
-            |{
+            |if(${'$'}x) {
             |    ${'$'}y = 5;
             |}
         """.trimMargin()

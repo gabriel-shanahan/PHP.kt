@@ -1,31 +1,47 @@
 package cz.php.kt.statements.blocks
 
 import cz.php.kt.Node
+import cz.php.kt.expressions.Expression
 import cz.php.kt.statements.Statement
+import cz.php.kt.statements.TerminatedStatement
 
 /**
- * Block implements a default render() method which prints children out as a { ... } block indented with 4 spaces.
+ * Any code block, i.e. a statement that contains other statements. Most often this will be a code
+ * block delimited by curly braces, but it also represents "case:" blocks in a switch statement, or the "<?php" block.
+ *
+ * Block splits its rendering into two parts, [renderHead] and [renderChildren]. It also defines a central part of the
+ * DSL in the form of [unaryPlus], which allows adding Nodes as children of a given block.
+ *
+ * @param children The child statements of the code block.
  */
-abstract class Block : Statement() {
+abstract class Block(protected val children: MutableList<Node> = mutableListOf()) : Statement() {
 
     /**
-     * Must be overridden by subclasses. This is where the "head" of the statement/expression is rendered, eg. in a for
-     * statement, this would be the for(...) part. Don't add explicit newlines at the end, the code takes care of that.
+     * This is where the "head" of the block is rendered, eg. in a "for" statement, this would be the
+     * for(...) part.
      */
     abstract fun renderHead(): String
 
     /**
-     * Renders the children as a block surrounded by curly braces and indented with 4 spaces.
+     * This is where the children of the block are rendered. In a for or if statement, this would be the {...}
      */
-    private fun renderChildren(): String = "{\n" +
-        children
-            .joinToString("\n", transform = Node::toPhpStr)
-            .prependIndent() +
-        "\n}"
+    abstract fun renderChildren(): String
 
     /**
-     * Combines [renderHead] and [renderChildren] to produce a string in the form <renderHead> {
-     * <[cz.php.kt.Node.children]> } with appropriate newlines.
+     * Combines [renderHead] and [renderChildren] to produce the final PHP code
      */
-    override fun toPhpStr(): String = renderHead() + if (children.isNotEmpty()) "\n" + renderChildren() else ""
+    override fun toPhpStr(): String = renderHead() + renderChildren()
+
+    /**
+     * Appends the [Node] to the children of the Block in whose context this method is called. When appending an
+     * [Expression], it is automatically transformed to a TerminatedStatement (to render the semicolon at the end).
+     */
+    operator fun Node.unaryPlus() = this@Block.children.add(
+        if (this is Expression) TerminatedStatement(this) else this
+    )
 }
+
+/**
+ * Renders the PHP code of every element, separated by newlines.
+ */
+fun List<Node>.toPhpStr(): String = joinToString("\n", transform = Node::toPhpStr)

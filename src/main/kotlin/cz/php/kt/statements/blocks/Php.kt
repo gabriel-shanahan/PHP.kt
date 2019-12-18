@@ -1,16 +1,13 @@
-package cz.php.kt.statements
-
-import cz.php.kt.toPhpStr
+package cz.php.kt.statements.blocks
 
 /**
  * Represents the top-level node of any PHP code. Other classes define the PHP DSL by adding extension methods to this
  * object, which correspond to the code they generate.
  */
-class Php : Statement() {
-    /**
-     * Generates the basic "<?php" tag before a list of Nodes.
-     */
-    override fun toPhpStr(): String = "<?php\n\n${children.toPhpStr()}"
+class Php : Block() {
+    override fun renderHead(): String = "<?php\n\n"
+
+    override fun renderChildren(): String = children.toPhpStr()
 }
 
 /**

@@ -1,18 +1,10 @@
 package cz.php.kt.statements
 
 import cz.php.kt.Node
-import cz.php.kt.expressions.Expression
 
 /**
- * Represents all language constructs that are not an [Expression][cz.php.kt.expressions.Expression]
+ * All language constructs that do not evaluate to values, i.e. that are not an
+ * [Expression][cz.php.kt.expressions.Expression]. This includes all code blocks, such as if, for, switch and
+ * the base <?php block, but also semicolon-terminated statements.
  */
-abstract class Statement : Node() {
-
-    /**
-     * Helper method that allows concise adding of children to a parent Block in builder functions. If the Node being
-     * appended is an Expression, it is transformed to a TerminatedStatement (to render the semicolon at the end).
-     */
-    operator fun Node.unaryPlus() = this@Statement.children.add(
-        if (this is Expression) TerminatedStatement(this) else this
-    )
-}
+abstract class Statement : Node

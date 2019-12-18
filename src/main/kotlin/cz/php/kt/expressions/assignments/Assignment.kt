@@ -4,7 +4,8 @@ import cz.php.kt.expressions.Expression
 import cz.php.kt.expressions.Variable
 
 /**
- * Represents an assignment in the form [lhs] = [rhs].
+ * An assignment in the form [lhs] = [rhs]. Since this is an Expression, there is no semicolon at the end (to permit
+ * things like $a = $b = 1)
  *
  * @param lhs The left hand side [Variable]
  * @param rhs The right hand side [Expression]
@@ -14,7 +15,7 @@ data class Assignment(private val lhs: Variable, private val rhs: Expression) : 
 }
 
 /**
- * Helper function to allow concise creation of assignments.
+ * A convenience method for creating Assignments.
  *
  * @param rhs The right hand side [Expression]
  */

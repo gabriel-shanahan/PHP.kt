@@ -4,7 +4,7 @@ import cz.php.kt.expressions.Expression
 import kotlin.String
 
 /**
- * Represents a number.
+ * A number.
  *
  * @param value The value
  */
@@ -13,6 +13,6 @@ data class Number(private val value: kotlin.Number) : Expression() {
 }
 
 /**
- * Helper function to convert Kotlin numbers to PHP Number objects.
+ * A convenience property that returns Kotlin numbers as PHP Numbers.
  */
 val kotlin.Number.phpObj get() = Number(this)

@@ -1,20 +1,11 @@
 package cz.php.kt
 
 /**
- * The base class for all PHP tags. Has [children], which are Nodes themselves, and defines a render() method which
- * is responsible for generating the PHP code.
- *
- * @param children The children of this Node.
+ * The base interface for all PHP objects. Exposes a [toPhpStr] method which is responsible for generating the PHP code.
  */
-abstract class Node(protected open val children: MutableList<Node> = mutableListOf()) {
-
+interface Node {
     /**
-     * Generates the PHP code. Must be overridden by subclasses.
+     * Responsible for generating valid PHP code.
      */
-    abstract fun toPhpStr(): String
+    fun toPhpStr(): String
 }
-
-/**
- * Helper method that allows concise rendering of lists of Nodes.
- */
-fun List<Node>.toPhpStr(): String = joinToString("\n", transform = Node::toPhpStr)
