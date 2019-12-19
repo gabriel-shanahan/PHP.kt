@@ -7,4 +7,5 @@ import cz.php.kt.statements.blocks.Braces
  */
 class Else : Braces() {
     override fun renderHead(): String = "else"
+    override val headChildrenSeparator: String = " "
 }

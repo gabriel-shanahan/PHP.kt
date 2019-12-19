@@ -15,6 +15,7 @@ class BracesTest : StringSpec({
         }
 
         override fun renderHead(): String = "for()"
+        override val headChildrenSeparator: String = " "
     }
 
     "A block should indent its children properly" {

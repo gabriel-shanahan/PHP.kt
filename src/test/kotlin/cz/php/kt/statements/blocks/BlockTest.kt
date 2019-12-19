@@ -27,6 +27,7 @@ class BlockTest : StringSpec({
         override fun renderHead(): String = ""
 
         override fun renderChildren(): String = children.joinToString(" ", transform = Node::toPhpStr)
+        override val headChildrenSeparator: String = ""
     }
 
     "Unary plus correctly appends children" {

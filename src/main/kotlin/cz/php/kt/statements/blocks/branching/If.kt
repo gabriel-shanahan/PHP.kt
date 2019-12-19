@@ -9,6 +9,7 @@ import cz.php.kt.statements.blocks.FollowUpContext
  */
 class If(condition: Expression) : BranchingStatement(condition) {
     override val conditionName: String = "if"
+    override val headChildrenSeparator: String = " "
 }
 
 /**

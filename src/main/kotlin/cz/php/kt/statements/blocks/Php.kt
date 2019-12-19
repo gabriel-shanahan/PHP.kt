@@ -5,7 +5,9 @@ package cz.php.kt.statements.blocks
  * object, which correspond to the code they generate.
  */
 class Php : Block() {
-    override fun renderHead(): String = "<?php\n\n"
+    override fun renderHead(): String = "<?php"
+
+    override val headChildrenSeparator: String = "\n\n"
 
     override fun renderChildren(): String = children.toPhpStr()
 }

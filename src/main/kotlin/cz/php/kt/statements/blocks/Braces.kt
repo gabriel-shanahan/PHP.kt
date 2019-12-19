@@ -6,11 +6,14 @@ package cz.php.kt.statements.blocks
 abstract class Braces : Block() {
 
     /**
-     * Renders the children as a block surrounded by curly braces and indented with 4 spaces. The opening curly brace is
-     * printed on the same line as the statements head. We mustn't forget the space at the beginning, which separates it
-     * from whatever [renderHead] returns (see [Block.toPhpStr]).
+     * Renders the children as a block surrounded by curly braces and indented with 4 spaces.
+     *
+     * With respect to PSR-x, there are two different situations that can arise - either the opening bracket is on the
+     * same line as the [head][Block.renderHead] (if, for, try/catch, ...) or the opening bracket is on a separate line
+     * (function/class definitions, ...). The [headChildrenSeparator][Block.headChildrenSeparator] is overridden in
+     * subclasses to control this.
      */
-    override fun renderChildren(): String = " {" +
+    override fun renderChildren(): String = "{" +
         (if (children.isNotEmpty()) "\n" + children.toPhpStr().prependIndent() + "\n" else "") +
             "}"
 }
