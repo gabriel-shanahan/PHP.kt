@@ -1,5 +1,7 @@
 package cz.php.kt.statements.blocks
 
+import cz.php.kt.statements.CompoundStatement
+
 /**
  * Represents the top-level node of any PHP code.
  */

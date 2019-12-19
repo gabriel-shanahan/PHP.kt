@@ -1,5 +1,7 @@
 package cz.php.kt.statements.blocks
 
+import cz.php.kt.statements.CompoundStatement
+
 /**
  * The purpose of [FollowUpContexts][FollowUpContext] is to allow one to define a set of functions that can only be
  * called in certain situations, e.g. an else block can only follow an if block. For constructs where such restrictions

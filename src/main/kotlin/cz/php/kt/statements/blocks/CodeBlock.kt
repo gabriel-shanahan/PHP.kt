@@ -1,5 +1,7 @@
 package cz.php.kt.statements.blocks
 
+import cz.php.kt.statements.CompoundStatement
+
 /**
  * A code block delimited by curly braces. Splits its rendering into two parts, [renderHead] and [renderChildren],
  * separated by [headChildrenSeparator].

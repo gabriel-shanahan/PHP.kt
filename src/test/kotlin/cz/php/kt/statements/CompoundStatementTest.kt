@@ -1,4 +1,4 @@
-package cz.php.kt.statements.blocks
+package cz.php.kt.statements
 
 import cz.php.kt.Node
 import cz.php.kt.expressions.phpVar

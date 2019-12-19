@@ -1,9 +1,7 @@
-package cz.php.kt.statements.blocks
+package cz.php.kt.statements
 
 import cz.php.kt.Node
 import cz.php.kt.expressions.Expression
-import cz.php.kt.statements.Statement
-import cz.php.kt.statements.TerminatedStatement
 
 /**
  * Any compound statement, i.e. a statement that contains other statements. Most often this will be a code

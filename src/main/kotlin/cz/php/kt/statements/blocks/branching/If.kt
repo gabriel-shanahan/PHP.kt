@@ -1,7 +1,7 @@
 package cz.php.kt.statements.blocks.branching
 
 import cz.php.kt.expressions.Expression
-import cz.php.kt.statements.blocks.CompoundStatement
+import cz.php.kt.statements.CompoundStatement
 import cz.php.kt.statements.blocks.FollowUpContext
 
 /**
