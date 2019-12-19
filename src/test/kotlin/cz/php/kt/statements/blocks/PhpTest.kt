@@ -10,7 +10,7 @@ class PhpTest : StringSpec({
         override fun toPhpStr(): String = name
     }
 
-    "The php function should add <?php at the beginning of the code" {
+    "The `php` dsl function should add <?php at the beginning of the code" {
         val code = php {
             +StringNode("first")
             +StringNode("second")

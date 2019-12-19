@@ -15,7 +15,7 @@ class IfTest : StringSpec({
         return this
     }
 
-    "if renders correctly" {
+    "An if block renders correctly" {
         val code = If("x".phpVar)
             .createChildren()
             .toPhpStr()
@@ -29,7 +29,7 @@ class IfTest : StringSpec({
         code shouldBe expected
     }
 
-    "the if helper function works correctly" {
+    "`if` DSL method works correctly" {
         val code = php {
             `if`("x".phpVar) {
                 +("y".phpVar `=` 5.phpObj)

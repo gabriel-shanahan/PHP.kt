@@ -43,7 +43,9 @@ class BracesTest : StringSpec({
             |}""".trimMargin()
 
         MockFor(mutableListOf(0.phpObj, mockFor, 1.phpObj)).toPhpStr() shouldBe expectedNested
+    }
 
+    "An empty block renders the braces on the same line" {
         val expectedEmpty = """
             |for() {}
         """.trimMargin()
