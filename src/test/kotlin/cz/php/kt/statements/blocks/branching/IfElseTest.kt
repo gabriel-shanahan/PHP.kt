@@ -46,4 +46,27 @@ class IfTest : StringSpec({
 
         code shouldBe expected
     }
+
+    "`else` DSL method can be called after `if` and renders correctly" {
+        val code = php {
+            `if`("x".phpVar) {
+                +("y".phpVar `=` 5.phpObj)
+            } `else` {
+                +("x".phpVar `=` 5.phpObj)
+            }
+        }.toPhpStr()
+
+        val expected = """
+            |<?php
+            |
+            |if(${'$'}x) {
+            |    ${'$'}y = 5;
+            |}
+            |else {
+            |    ${'$'}x = 5;
+            |}
+        """.trimMargin()
+
+        code shouldBe expected
+    }
 })
