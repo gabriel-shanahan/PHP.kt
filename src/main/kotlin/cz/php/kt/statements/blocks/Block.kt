@@ -28,9 +28,9 @@ abstract class Block(protected val children: MutableList<Node> = mutableListOf()
     abstract fun renderChildren(): String
 
     /**
-     * The separator between head and children. This is included for conformity with PSR-x standards - some
-     * curly blocks must open on the same line as the head (if, for, ...), some on the next line
-     * (function/class declarations).
+     * The (whitespace) separator between head and children. This is used to implement PSR-x standards - some curly
+     * blocks must open on the same line as the head (if, for, ...), some on the next line (function/class
+     * declarations).
      */
     abstract val headChildrenSeparator: String
 
@@ -53,4 +53,4 @@ abstract class Block(protected val children: MutableList<Node> = mutableListOf()
 /**
  * Renders the PHP code of every element, separated by newlines.
  */
-fun List<Node>.toPhpStr(): String = joinToString("\n", transform = Node::toPhpStr)
+fun List<Node>.joinToPhpString(separator: String = "\n"): String = joinToString(separator, transform = Node::toPhpStr)

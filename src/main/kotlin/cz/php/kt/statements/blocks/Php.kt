@@ -9,7 +9,7 @@ class Php : Block() {
 
     override val headChildrenSeparator: String = "\n\n"
 
-    override fun renderChildren(): String = children.toPhpStr()
+    override fun renderChildren(): String = children.joinToPhpString()
 }
 
 /**

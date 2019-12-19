@@ -14,6 +14,6 @@ abstract class Braces : Block() {
      * subclasses to control this.
      */
     override fun renderChildren(): String = "{" +
-        (if (children.isNotEmpty()) "\n" + children.toPhpStr().prependIndent() + "\n" else "") +
+        (if (children.isNotEmpty()) "\n" + children.joinToPhpString().prependIndent() + "\n" else "") +
             "}"
 }
