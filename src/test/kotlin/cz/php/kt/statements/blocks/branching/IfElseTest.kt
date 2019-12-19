@@ -7,7 +7,7 @@ import cz.php.kt.statements.blocks.php
 import io.kotlintest.shouldBe
 import io.kotlintest.specs.StringSpec
 
-class IfTest : StringSpec({
+class IfElseTest : StringSpec({
 
     fun If.createChildren(): If {
         +("y".phpVar `=` "x is true".phpObj)
