@@ -1,4 +1,4 @@
-package cz.php.kt.statements.blocks
+package cz.php.kt
 
 import cz.php.kt.statements.CompoundStatement
 
@@ -8,7 +8,7 @@ import cz.php.kt.statements.CompoundStatement
  * apply, we define a FollowUpContext which defines the applicable "follow-up" functions, and then return instances of
  * it whenever necessary.
  *
- * @see cz.php.kt.statements.blocks.branching.If
+ * @see cz.php.kt.statements.constructs.branching.If
  */
 interface FollowUpContext {
     /**

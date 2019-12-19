@@ -1,15 +1,16 @@
-package cz.php.kt.statements.blocks.branching
+package cz.php.kt.statements.constructs.branching
 
 import cz.php.kt.expressions.assignments.`=`
 import cz.php.kt.expressions.phpVar
 import cz.php.kt.expressions.scalars.phpObj
-import cz.php.kt.statements.blocks.php
+import cz.php.kt.statements.CompoundStatement
+import cz.php.kt.statements.constructs.php
 import io.kotlintest.shouldBe
 import io.kotlintest.specs.StringSpec
 
 class IfElseTest : StringSpec({
 
-    fun If.createChildren(): If {
+    fun CompoundStatement.createChildren(): CompoundStatement {
         +("y".phpVar `=` "x is true".phpObj)
         +("z".phpVar `=` "x is true".phpObj)
         return this
@@ -17,7 +18,7 @@ class IfElseTest : StringSpec({
 
     "An if block renders correctly" {
         val code = If("x".phpVar)
-            .createChildren()
+            .apply { body.createChildren() }
             .toPhpStr()
 
         val expected = """
@@ -61,8 +62,7 @@ class IfElseTest : StringSpec({
             |
             |if(${'$'}x) {
             |    ${'$'}y = 5;
-            |}
-            |else {
+            |} else {
             |    ${'$'}x = 5;
             |}
         """.trimMargin()

@@ -1,4 +1,4 @@
-package cz.php.kt.statements.blocks
+package cz.php.kt.statements.constructs
 
 import cz.php.kt.Node
 import io.kotlintest.shouldBe

@@ -10,14 +10,13 @@ import cz.php.kt.expressions.Expression
  * A central part of the DSL is defined here, in the form of [unaryPlus], which allows adding Nodes as children of a
  * given compound statement.
  *
+ * @param separator The whitespace that will separate the children.
  * @param children The child statements of the compound statement.
  */
-open class CompoundStatement(protected val children: MutableList<Node> = mutableListOf()) : Statement() {
-
-    /**
-     * Defines the whitespace which will separate the children.
-     */
-    protected open val separator: String = "\n"
+open class CompoundStatement(
+    protected open val separator: String,
+    protected val children: MutableList<Node> = mutableListOf()
+) : Statement() {
 
     /**
      * Appends the [Node] to the children of the Block in whose context this method is called. When appending an

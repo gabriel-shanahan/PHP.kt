@@ -11,30 +11,26 @@ class CompoundStatementTest : StringSpec({
         override fun toPhpStr(): String = name
     }
 
-    "Rendering a list of nodes renders each one on a separate line" {
-        val nodes = CompoundStatement(MutableList(3) { StringNode(it.toString()) })
+    "Rendering a CompoundStatement renders each children separated by the separator" {
+        val nodes = CompoundStatement(" ", MutableList(3) { StringNode(it.toString()) })
 
-        nodes.toPhpStr() shouldBe "0\n1\n2"
-    }
-
-    class Container(children: List<Node>) : CompoundStatement() {
-        override val separator: String = " "
-
-        init {
-            children.forEach {
-                +it
-            }
-        }
+        nodes.toPhpStr() shouldBe "0 1 2"
     }
 
     "Unary plus correctly appends children" {
-        val code = Container(listOf(StringNode("Hello"), StringNode("World"))).toPhpStr()
+        val code = CompoundStatement(" ").apply {
+            +StringNode("Hello")
+            +StringNode("World")
+        }.toPhpStr()
 
         code shouldBe "Hello World"
     }
 
     "Unary plus converts expressions to semicolon terminated statements" {
-        val code = Container(listOf("Hello".phpVar, "World".phpObj)).toPhpStr()
+        val code = CompoundStatement(" ").apply {
+            +"Hello".phpVar
+            +"World".phpObj
+        }.toPhpStr()
 
         code shouldBe "\$Hello; \"World\";"
     }
