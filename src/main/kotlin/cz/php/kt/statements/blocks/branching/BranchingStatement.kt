@@ -1,14 +1,14 @@
 package cz.php.kt.statements.blocks.branching
 
 import cz.php.kt.expressions.Expression
-import cz.php.kt.statements.blocks.Braces
+import cz.php.kt.statements.blocks.CodeBlock
 
 /**
- * The base class for all branching statements (if, else, switch, ...)
+ * The base class for all branching statements (if, elseif, switch)
  *
  * @param condition The condition expression in the branching statement.
  */
-abstract class BranchingStatement(private val condition: Expression) : Braces() {
+abstract class BranchingStatement(private val condition: Expression) : CodeBlock() {
     /**
      * The name of the branching statement
      */

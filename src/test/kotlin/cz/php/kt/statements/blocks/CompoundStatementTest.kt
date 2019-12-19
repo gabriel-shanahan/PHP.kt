@@ -6,7 +6,7 @@ import cz.php.kt.expressions.scalars.phpObj
 import io.kotlintest.shouldBe
 import io.kotlintest.specs.StringSpec
 
-class BlockTest : StringSpec({
+class CompoundStatementTest : StringSpec({
     class StringNode(val name: String) : Node {
         override fun toPhpStr(): String = name
     }
@@ -17,17 +17,14 @@ class BlockTest : StringSpec({
         nodes.joinToPhpString() shouldBe "0\n1\n2"
     }
 
-    class Container(children: List<Node>) : Block() {
+    class Container(children: List<Node>) : CompoundStatement() {
         init {
             children.forEach {
                 +it
             }
         }
 
-        override fun renderHead(): String = ""
-
-        override fun renderChildren(): String = children.joinToString(" ", transform = Node::toPhpStr)
-        override val headChildrenSeparator: String = ""
+        override fun toPhpStr(): String = children.joinToString(" ", transform = Node::toPhpStr)
     }
 
     "Unary plus correctly appends children" {

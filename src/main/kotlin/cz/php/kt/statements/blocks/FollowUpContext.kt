@@ -12,7 +12,7 @@ interface FollowUpContext {
     /**
      * The parent block. This reference is used so we have a way to add children in the DSL functions.
      *
-     * @see [Block.unaryPlus]
+     * @see [CompoundStatement.unaryPlus]
      */
-    val parent: Block
+    val parent: CompoundStatement
 }

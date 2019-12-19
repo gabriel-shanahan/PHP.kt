@@ -1,7 +1,7 @@
 package cz.php.kt.statements.blocks.branching
 
 import cz.php.kt.expressions.Expression
-import cz.php.kt.statements.blocks.Block
+import cz.php.kt.statements.blocks.CompoundStatement
 import cz.php.kt.statements.blocks.FollowUpContext
 
 /**
@@ -15,7 +15,7 @@ class If(condition: Expression) : BranchingStatement(condition) {
 /**
  * The applicable followups to if statements.
  */
-class IfFollowUp(override val parent: Block) : FollowUpContext {
+class IfFollowUp(override val parent: CompoundStatement) : FollowUpContext {
 
     /**
      * DSL method to create an else block with the body [exec]
@@ -31,7 +31,7 @@ class IfFollowUp(override val parent: Block) : FollowUpContext {
  * @param condition The condition of the if statement
  * @param exec The bod of the if statement
  */
-inline fun Block.`if`(condition: Expression, exec: If.() -> Unit): IfFollowUp {
+inline fun CompoundStatement.`if`(condition: Expression, exec: If.() -> Unit): IfFollowUp {
     +If(condition).apply(exec)
     return IfFollowUp(this)
 }

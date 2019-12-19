@@ -5,9 +5,9 @@ import cz.php.kt.expressions.scalars.phpObj
 import io.kotlintest.shouldBe
 import io.kotlintest.specs.StringSpec
 
-class BracesTest : StringSpec({
+class CodeBlockTest : StringSpec({
 
-    class MockFor(children: MutableList<out Node> = mutableListOf()) : Braces() {
+    class MockFor(children: MutableList<out Node> = mutableListOf()) : CodeBlock() {
         init {
             children.forEach {
                 +it
