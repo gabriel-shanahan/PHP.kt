@@ -12,19 +12,19 @@ class CompoundStatementTest : StringSpec({
     }
 
     "Rendering a list of nodes renders each one on a separate line" {
-        val nodes = List(3) { StringNode(it.toString()) }
+        val nodes = CompoundStatement(MutableList(3) { StringNode(it.toString()) })
 
-        nodes.joinToPhpString() shouldBe "0\n1\n2"
+        nodes.toPhpStr() shouldBe "0\n1\n2"
     }
 
     class Container(children: List<Node>) : CompoundStatement() {
+        override val separator: String = " "
+
         init {
             children.forEach {
                 +it
             }
         }
-
-        override fun toPhpStr(): String = children.joinToString(" ", transform = Node::toPhpStr)
     }
 
     "Unary plus correctly appends children" {

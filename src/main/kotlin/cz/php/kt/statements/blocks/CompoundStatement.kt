@@ -14,7 +14,12 @@ import cz.php.kt.statements.TerminatedStatement
  *
  * @param children The child statements of the compound statement.
  */
-abstract class CompoundStatement(protected val children: MutableList<Node> = mutableListOf()) : Statement() {
+open class CompoundStatement(protected val children: MutableList<Node> = mutableListOf()) : Statement() {
+
+    /**
+     * Defines the whitespace which will separate the children.
+     */
+    protected open val separator: String = "\n"
 
     /**
      * Appends the [Node] to the children of the Block in whose context this method is called. When appending an
@@ -25,9 +30,11 @@ abstract class CompoundStatement(protected val children: MutableList<Node> = mut
             if (this is Expression) TerminatedStatement(this) else this
         )
     }
-}
 
-/**
- * Renders the PHP code of every element, separated by newlines.
- */
-fun List<Node>.joinToPhpString(separator: String = "\n"): String = joinToString(separator, transform = Node::toPhpStr)
+    /**
+     * Renders the PHP code of every [child][Node], separated by [separator].
+     */
+    fun List<Node>.joinToPhpString(): String = joinToString(separator, transform = Node::toPhpStr)
+
+    override fun toPhpStr(): String = children.joinToPhpString()
+}
