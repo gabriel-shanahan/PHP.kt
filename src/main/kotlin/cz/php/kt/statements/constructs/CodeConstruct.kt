@@ -5,9 +5,9 @@ import cz.php.kt.statements.Statement
 
 /**
  * Represents a PHP code construct, such as for, if, try, catch, finally, case, function declarations etc. A code
- * construct is defined by it's [head] and [body], separated by [neck], which is a whitespace separator. The [neck] is
- * used to implement PSR standards - some curly blocks must open on the same line as the head (e. g. if, for), some on
- * the next line (e.g. function/class declarations).
+ * construct has a [head] and a [body], which are separated by a [neck], a whitespace separator. The [neck] is used to
+ * implement PSR standards - some curly blocks must open on the same line as the head (e. g. if, for), some on the next
+ * line (e.g. function/class declarations).
  *
  * @param neck The whitespace separator between the head and the body of the construct.
  */

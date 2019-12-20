@@ -13,7 +13,7 @@ import cz.php.kt.statements.constructs.CodeConstruct
  */
 class If(private val condition: Expression) : CodeConstruct(" ") {
 
-    override val head: String get() = "if(${condition.toPhpStr()})"
+    override val head: String get() = "if (${condition.toPhpStr()})"
     override val body: CompoundStatement = Block()
 }
 

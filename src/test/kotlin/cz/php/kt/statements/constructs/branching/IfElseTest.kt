@@ -22,7 +22,7 @@ class IfElseTest : StringSpec({
             .toPhpStr()
 
         val expected = """
-            |if(${'$'}x) {
+            |if (${'$'}x) {
             |    ${'$'}y = "x is true";
             |    ${'$'}z = "x is true";
             |}""".trimMargin()
@@ -40,7 +40,7 @@ class IfElseTest : StringSpec({
         val expected = """
             |<?php
             |
-            |if(${'$'}x) {
+            |if (${'$'}x) {
             |    ${'$'}y = 5;
             |}
         """.trimMargin()
@@ -60,7 +60,7 @@ class IfElseTest : StringSpec({
         val expected = """
             |<?php
             |
-            |if(${'$'}x) {
+            |if (${'$'}x) {
             |    ${'$'}y = 5;
             |} else {
             |    ${'$'}x = 5;
