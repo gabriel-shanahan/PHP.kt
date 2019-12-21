@@ -17,8 +17,6 @@ data class Assignment(private val lhs: Variable, private val rhs: Expression) : 
 /**
  * A convenience method for creating Assignments.
  *
- * TODO: Make Assigment.=
- *
  * @param rhs The right hand side [Expression]
  */
 infix fun Variable.`=`(rhs: Expression) = Assignment(this, rhs)

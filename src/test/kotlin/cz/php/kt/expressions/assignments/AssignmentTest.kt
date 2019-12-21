@@ -14,4 +14,8 @@ class AssignmentTest : StringSpec({
     "Helper function creates assignments correctly" {
         ("x".phpVar `=` 3.14.phpObj) shouldBe Assignment("x".phpVar, 3.14.phpObj)
     }
+
+    "Nested assignments work when parenthesised correctly" {
+        ("x".phpVar `=` ("y".phpVar `=` "x".phpObj)).toPhpStr() shouldBe "\$x = \$y = \"x\""
+    }
 })
