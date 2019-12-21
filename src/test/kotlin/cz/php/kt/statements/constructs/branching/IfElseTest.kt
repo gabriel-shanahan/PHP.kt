@@ -11,8 +11,8 @@ import io.kotlintest.specs.StringSpec
 class IfElseTest : StringSpec({
 
     fun CompoundStatement.createChildren(): CompoundStatement {
-        +(`$`("y") `=` "x is true")
-        +(`$`("z")`=` "x is true")
+        `$`("y") `=` "x is true"
+        `$`("z")`=` "x is true"
         return this
     }
 
@@ -33,7 +33,7 @@ class IfElseTest : StringSpec({
     "`if` DSL method works correctly" {
         val code = php {
             `if`(`$`("x")) {
-                +(`$`("y") `=` 5)
+                `$`("y") `=` 5
             }
         }.toPhpStr()
 
@@ -51,9 +51,9 @@ class IfElseTest : StringSpec({
     "elseif DSL method can be called after `if` and renders correctly" {
         val code = php {
             `if`(`$`("x")) {
-                +(`$`("y") `=` 5)
+                `$`("y") `=` 5
             } elseif(`$`("x")) {
-                +(`$`("x") `=` 5)
+                `$`("x") `=` 5
             }
         }.toPhpStr()
 
@@ -73,9 +73,9 @@ class IfElseTest : StringSpec({
     "`else` DSL method can be called after `if` and renders correctly" {
         val code = php {
             `if`(`$`("x")) {
-                +(`$`("y") `=` 5)
+                `$`("y") `=` 5
             } `else` {
-                +(`$`("x") `=` 5)
+                `$`("x") `=` 5
             }
         }.toPhpStr()
 
@@ -95,13 +95,13 @@ class IfElseTest : StringSpec({
     "if, elseif and else can be called after each other" {
         val code = php {
             `if`(`$`("x")) {
-                +(`$`("x") `=` 5)
+                `$`("x") `=` 5
             } elseif(`$`("y")) {
-                +(`$`("y") `=` 5)
+                `$`("y") `=` 5
             } elseif(`$`("z")) {
-                +(`$`("z") `=` 5)
+                `$`("z") `=` 5
             } `else` {
-                +(`$`("x") `=` `$`("y"))
+                `$`("x") `=` `$`("y")
             }
         }.toPhpStr()
 
