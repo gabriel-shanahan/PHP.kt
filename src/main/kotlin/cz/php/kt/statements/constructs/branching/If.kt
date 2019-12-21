@@ -1,6 +1,5 @@
 package cz.php.kt.statements.constructs.branching
 
-import cz.php.kt.FollowUpContext
 import cz.php.kt.expressions.Expression
 import cz.php.kt.statements.CompoundStatement
 import cz.php.kt.statements.blocks.Block
@@ -12,7 +11,6 @@ import cz.php.kt.statements.constructs.CodeConstruct
  *  @param condition The condition expression in the if statement.
  */
 class If(private val condition: Expression) : CodeConstruct(" ") {
-
     override val head: String get() = "if (${condition.toPhpStr()})"
     override val body: CompoundStatement = Block()
 }
@@ -27,32 +25,14 @@ class If(private val condition: Expression) : CodeConstruct(" ") {
  * @param condition The condition of the if statement
  * @param exec The body of the if statement
  *
- * @see IfFollowUp
+ * @see IfElseIfFollowUp
  */
-inline fun CompoundStatement.`if`(condition: Expression, exec: CompoundStatement.() -> Unit): IfFollowUp {
+inline fun CompoundStatement.`if`(condition: Expression, exec: CompoundStatement.() -> Unit): IfElseIfFollowUp {
     val ifBlock = If(condition).apply { body.exec() }
 
     // PSR standards dictate that elseif/else blocks should start right after the closing "}" of the previous block, so
     // the separator is a space
     val ifElseCompoundStatement = CompoundStatement(" ", mutableListOf(ifBlock))
     +ifElseCompoundStatement
-    return IfFollowUp(ifElseCompoundStatement)
-}
-
-/**
- * The applicable followups to if statements.
- */
-class IfFollowUp(override val parent: CompoundStatement) : FollowUpContext {
-
-    /**
-     * DSL method to create an else block with the body [exec]
-     *
-     * @param exec The body of the else statement
-     *
-     * @see Else
-     * @see if
-     */
-    inline infix fun `else`(exec: CompoundStatement.() -> Unit) = parent.apply {
-        +Else().apply { body.exec() }
-    }
+    return IfElseIfFollowUp(ifElseCompoundStatement)
 }
