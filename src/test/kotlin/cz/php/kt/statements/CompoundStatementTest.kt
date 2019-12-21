@@ -1,7 +1,7 @@
 package cz.php.kt.statements
 
 import cz.php.kt.Node
-import cz.php.kt.expressions.phpVar
+import cz.php.kt.expressions.`$`
 import cz.php.kt.expressions.scalars.phpObj
 import io.kotlintest.shouldBe
 import io.kotlintest.specs.StringSpec
@@ -28,7 +28,7 @@ class CompoundStatementTest : StringSpec({
 
     "Unary plus converts expressions to semicolon terminated statements" {
         val code = CompoundStatement(" ").apply {
-            +"Hello".phpVar
+            +`$`("Hello")
             +"World".phpObj
         }.toPhpStr()
 

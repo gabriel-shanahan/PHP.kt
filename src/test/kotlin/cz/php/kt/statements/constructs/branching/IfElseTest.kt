@@ -1,7 +1,7 @@
 package cz.php.kt.statements.constructs.branching
 
+import cz.php.kt.expressions.`$`
 import cz.php.kt.expressions.assignments.`=`
-import cz.php.kt.expressions.phpVar
 import cz.php.kt.expressions.scalars.phpObj
 import cz.php.kt.invoke
 import cz.php.kt.statements.CompoundStatement
@@ -12,13 +12,13 @@ import io.kotlintest.specs.StringSpec
 class IfElseTest : StringSpec({
 
     fun CompoundStatement.createChildren(): CompoundStatement {
-        +("y".phpVar `=` "x is true".phpObj)
-        +("z".phpVar `=` "x is true".phpObj)
+        +(`$`("y") `=` "x is true".phpObj)
+        +(`$`("z")`=` "x is true".phpObj)
         return this
     }
 
     "An if block renders correctly" {
-        val code = If("x".phpVar)
+        val code = If(`$`("x"))
             .apply { body.createChildren() }
             .toPhpStr()
 
@@ -33,8 +33,8 @@ class IfElseTest : StringSpec({
 
     "`if` DSL method works correctly" {
         val code = php {
-            `if`("x".phpVar) {
-                +("y".phpVar `=` 5.phpObj)
+            `if`(`$`("x")) {
+                +(`$`("y") `=` 5.phpObj)
             }
         }.toPhpStr()
 
@@ -51,10 +51,10 @@ class IfElseTest : StringSpec({
 
     "elseif DSL method can be called after `if` and renders correctly" {
         val code = php {
-            `if`("x".phpVar) {
-                +("y".phpVar `=` 5.phpObj)
-            } elseif("x".phpVar) {
-                +("x".phpVar `=` 5.phpObj)
+            `if`(`$`("x")) {
+                +(`$`("y") `=` 5.phpObj)
+            } elseif(`$`("x")) {
+                +(`$`("x") `=` 5.phpObj)
             }
         }.toPhpStr()
 
@@ -73,10 +73,10 @@ class IfElseTest : StringSpec({
 
     "`else` DSL method can be called after `if` and renders correctly" {
         val code = php {
-            `if`("x".phpVar) {
-                +("y".phpVar `=` 5.phpObj)
+            `if`(`$`("x")) {
+                +(`$`("y") `=` 5.phpObj)
             } `else` {
-                +("x".phpVar `=` 5.phpObj)
+                +(`$`("x") `=` 5.phpObj)
             }
         }.toPhpStr()
 
@@ -95,14 +95,14 @@ class IfElseTest : StringSpec({
 
     "if, elseif and else can be called after each other" {
         val code = php {
-            `if`("x".phpVar) {
-                +("x".phpVar `=` 5.phpObj)
-            } elseif("y".phpVar) {
-                +("y".phpVar `=` 5.phpObj)
-            } elseif("z".phpVar) {
-                +("z".phpVar `=` 5.phpObj)
+            `if`(`$`("x")) {
+                +(`$`("x") `=` 5.phpObj)
+            } elseif(`$`("y")) {
+                +(`$`("y") `=` 5.phpObj)
+            } elseif(`$`("z")) {
+                +(`$`("z") `=` 5.phpObj)
             } `else` {
-                +("x".phpVar `=` "y".phpVar)
+                +(`$`("x") `=` `$`("y"))
             }
         }.toPhpStr()
 

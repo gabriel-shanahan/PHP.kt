@@ -39,4 +39,4 @@ data class Variable(private val name: String) : Expression() {
 /**
  * Helper property to convert Kotlin strings to PHP Variable objects.
  */
-val String.phpVar get() = Variable(this)
+fun `$`(str: String) = Variable(str)
