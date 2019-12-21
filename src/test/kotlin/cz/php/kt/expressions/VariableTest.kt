@@ -35,4 +35,8 @@ class VariableTest : StringSpec({
     "Variables can be created directly from strings" {
         `$`("x") shouldBe Variable("x")
     }
+
+    "Accessing array elements works" {
+        `$`("x")[3]["a"][null][`$`("y")].toPhpStr() shouldBe """${'$'}x[3]["a"][][${'$'}y]"""
+    }
 })
