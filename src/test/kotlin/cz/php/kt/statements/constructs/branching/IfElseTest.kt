@@ -2,7 +2,6 @@ package cz.php.kt.statements.constructs.branching
 
 import cz.php.kt.expressions.`$`
 import cz.php.kt.expressions.assignments.`=`
-import cz.php.kt.expressions.scalars.phpObj
 import cz.php.kt.invoke
 import cz.php.kt.statements.CompoundStatement
 import cz.php.kt.statements.constructs.php
@@ -12,8 +11,8 @@ import io.kotlintest.specs.StringSpec
 class IfElseTest : StringSpec({
 
     fun CompoundStatement.createChildren(): CompoundStatement {
-        +(`$`("y") `=` "x is true".phpObj)
-        +(`$`("z")`=` "x is true".phpObj)
+        +(`$`("y") `=` "x is true")
+        +(`$`("z")`=` "x is true")
         return this
     }
 
@@ -34,7 +33,7 @@ class IfElseTest : StringSpec({
     "`if` DSL method works correctly" {
         val code = php {
             `if`(`$`("x")) {
-                +(`$`("y") `=` 5.phpObj)
+                +(`$`("y") `=` 5)
             }
         }.toPhpStr()
 
@@ -52,9 +51,9 @@ class IfElseTest : StringSpec({
     "elseif DSL method can be called after `if` and renders correctly" {
         val code = php {
             `if`(`$`("x")) {
-                +(`$`("y") `=` 5.phpObj)
+                +(`$`("y") `=` 5)
             } elseif(`$`("x")) {
-                +(`$`("x") `=` 5.phpObj)
+                +(`$`("x") `=` 5)
             }
         }.toPhpStr()
 
@@ -74,9 +73,9 @@ class IfElseTest : StringSpec({
     "`else` DSL method can be called after `if` and renders correctly" {
         val code = php {
             `if`(`$`("x")) {
-                +(`$`("y") `=` 5.phpObj)
+                +(`$`("y") `=` 5)
             } `else` {
-                +(`$`("x") `=` 5.phpObj)
+                +(`$`("x") `=` 5)
             }
         }.toPhpStr()
 
@@ -96,11 +95,11 @@ class IfElseTest : StringSpec({
     "if, elseif and else can be called after each other" {
         val code = php {
             `if`(`$`("x")) {
-                +(`$`("x") `=` 5.phpObj)
+                +(`$`("x") `=` 5)
             } elseif(`$`("y")) {
-                +(`$`("y") `=` 5.phpObj)
+                +(`$`("y") `=` 5)
             } elseif(`$`("z")) {
-                +(`$`("z") `=` 5.phpObj)
+                +(`$`("z") `=` 5)
             } `else` {
                 +(`$`("x") `=` `$`("y"))
             }

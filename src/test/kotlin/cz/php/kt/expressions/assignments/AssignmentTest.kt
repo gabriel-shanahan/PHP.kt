@@ -12,10 +12,10 @@ class AssignmentTest : StringSpec({
     }
 
     "Helper function creates assignments correctly" {
-        (`$`("x") `=` 3.14.phpObj) shouldBe Assignment(`$`("x"), 3.14.phpObj)
+        (`$`("x") `=` 3.14) shouldBe Assignment(`$`("x"), 3.14.phpObj)
     }
 
     "Nested assignments work when parenthesised correctly" {
-        (`$`("x") `=` (`$`("y") `=` "x".phpObj)).toPhpStr() shouldBe "\$x = \$y = \"x\""
+        (`$`("x") `=` (`$`("y") `=` "x")).toPhpStr() shouldBe "\$x = \$y = \"x\""
     }
 })
