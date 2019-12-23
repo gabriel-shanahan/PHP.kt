@@ -15,7 +15,7 @@ repositories {
     jcenter()
 }
 
-group = "cz.php.kt"
+group = "com.github.gabriel-shanahan.phpkt"
 version = "0.0.1a"
 
 dependencies {
