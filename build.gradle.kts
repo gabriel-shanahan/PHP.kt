@@ -15,7 +15,7 @@ repositories {
     jcenter()
 }
 
-group = "com.github.gabriel-shanahan.phpkt"
+group = "com.github.gabrielshanahan.phpkt"
 version = "0.0.1a"
 
 dependencies {
