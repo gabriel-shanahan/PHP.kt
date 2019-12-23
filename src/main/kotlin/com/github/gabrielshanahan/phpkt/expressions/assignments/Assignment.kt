@@ -17,7 +17,8 @@ data class Assignment(private val lhs: Variable, private val rhs: Expression) : 
 }
 
 /**
- * Convenience method for creating Assignments outside of [CompoundStatements][com.github.gabrielshanahan.phpkt.statements.CompoundStatement].
+ * Convenience method for creating Assignments outside of
+ * [CompoundStatements][com.github.gabrielshanahan.phpkt.statements.CompoundStatement].
  *
  * @param rhs The right hand side
  */

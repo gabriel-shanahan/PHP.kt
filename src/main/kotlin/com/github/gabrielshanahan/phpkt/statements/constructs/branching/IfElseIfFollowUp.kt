@@ -12,7 +12,8 @@ class IfElseIfFollowUp(override val parent: CompoundStatement) : FollowUpContext
     /**
      * DSL method to create an elseif block. The parent compound statement in this case is the compound statement
      * containing all if-elseif-else blocks. See [if ], where it is created. To be able to use this as an infix
-     * function, both the condition and the body must be wrapped in a pair. See [com.github.gabrielshanahan.phpkt.invoke].
+     * function, both the condition and the body must be wrapped in a pair. See
+     * [com.github.gabrielshanahan.phpkt.invoke].
      *
      * @param input A pair containing the condition of the elseif statement and the body of the elseif statement
      *
