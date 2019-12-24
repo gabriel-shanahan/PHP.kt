@@ -1,6 +1,6 @@
 package com.github.gabrielshanahan.phpkt.expressions.scalars
 
-import com.github.gabrielshanahan.phpkt.expressions.Expression
+import com.github.gabrielshanahan.phpkt.Expression
 
 /**
  * A _double quoted_ string in PHP. Be aware that this means that things such as escape sequences, dollar

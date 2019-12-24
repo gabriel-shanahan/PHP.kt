@@ -1,13 +1,13 @@
 package com.github.gabrielshanahan.phpkt.statements
 
-import com.github.gabrielshanahan.phpkt.Node
+import com.github.gabrielshanahan.phpkt.Statement
 import com.github.gabrielshanahan.phpkt.expressions.assignables.`$`
 import com.github.gabrielshanahan.phpkt.expressions.scalars.phpObj
 import io.kotlintest.shouldBe
 import io.kotlintest.specs.StringSpec
 
 class CompoundStatementTest : StringSpec({
-    class StringNode(val name: String) : Node {
+    class StringNode(val name: String) : Statement() {
         override fun toPhpStr(): String = name
     }
 

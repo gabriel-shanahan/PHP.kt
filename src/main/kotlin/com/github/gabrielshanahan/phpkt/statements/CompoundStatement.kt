@@ -1,7 +1,8 @@
 package com.github.gabrielshanahan.phpkt.statements
 
+import com.github.gabrielshanahan.phpkt.Expression
 import com.github.gabrielshanahan.phpkt.Node
-import com.github.gabrielshanahan.phpkt.expressions.Expression
+import com.github.gabrielshanahan.phpkt.Statement
 import com.github.gabrielshanahan.phpkt.expressions.assignables.SimpleVariable
 import com.github.gabrielshanahan.phpkt.expressions.assignments.Assignment
 import com.github.gabrielshanahan.phpkt.expressions.scalars.Number

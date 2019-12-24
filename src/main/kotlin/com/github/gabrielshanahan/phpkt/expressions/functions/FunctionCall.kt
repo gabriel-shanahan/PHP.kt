@@ -1,7 +1,7 @@
 package com.github.gabrielshanahan.phpkt.expressions.functions
 
+import com.github.gabrielshanahan.phpkt.Expression
 import com.github.gabrielshanahan.phpkt.Node
-import com.github.gabrielshanahan.phpkt.expressions.Expression
 import com.github.gabrielshanahan.phpkt.expressions.scalars.Number
 import com.github.gabrielshanahan.phpkt.expressions.scalars.String
 

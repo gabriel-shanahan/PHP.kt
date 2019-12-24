@@ -1,6 +1,5 @@
 package com.github.gabrielshanahan.phpkt
 
-import com.github.gabrielshanahan.phpkt.expressions.Expression
 import com.github.gabrielshanahan.phpkt.statements.CompoundStatement
 import com.github.gabrielshanahan.phpkt.statements.constructs.branching.IfElseIfFollowUp
 

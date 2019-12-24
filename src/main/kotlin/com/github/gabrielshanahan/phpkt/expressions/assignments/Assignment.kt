@@ -1,6 +1,6 @@
 package com.github.gabrielshanahan.phpkt.expressions.assignments
 
-import com.github.gabrielshanahan.phpkt.expressions.Expression
+import com.github.gabrielshanahan.phpkt.Expression
 import com.github.gabrielshanahan.phpkt.expressions.assignables.SimpleVariable
 import com.github.gabrielshanahan.phpkt.expressions.scalars.Number
 import com.github.gabrielshanahan.phpkt.expressions.scalars.String

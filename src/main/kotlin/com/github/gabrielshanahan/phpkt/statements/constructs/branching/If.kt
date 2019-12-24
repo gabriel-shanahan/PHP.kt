@@ -1,6 +1,6 @@
 package com.github.gabrielshanahan.phpkt.statements.constructs.branching
 
-import com.github.gabrielshanahan.phpkt.expressions.Expression
+import com.github.gabrielshanahan.phpkt.Expression
 import com.github.gabrielshanahan.phpkt.statements.CompoundStatement
 import com.github.gabrielshanahan.phpkt.statements.blocks.Block
 import com.github.gabrielshanahan.phpkt.statements.constructs.CodeConstruct

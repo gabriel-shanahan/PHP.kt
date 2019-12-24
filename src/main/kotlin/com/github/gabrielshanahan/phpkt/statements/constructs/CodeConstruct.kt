@@ -1,7 +1,7 @@
 package com.github.gabrielshanahan.phpkt.statements.constructs
 
+import com.github.gabrielshanahan.phpkt.Statement
 import com.github.gabrielshanahan.phpkt.statements.CompoundStatement
-import com.github.gabrielshanahan.phpkt.statements.Statement
 
 /**
  * Represents a PHP code construct, such as for, if, try, catch, finally, case, function declarations etc. A code

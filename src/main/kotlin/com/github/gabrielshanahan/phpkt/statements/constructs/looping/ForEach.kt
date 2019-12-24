@@ -1,6 +1,6 @@
 package com.github.gabrielshanahan.phpkt.statements.constructs.looping
 
-import com.github.gabrielshanahan.phpkt.expressions.Expression
+import com.github.gabrielshanahan.phpkt.Expression
 import com.github.gabrielshanahan.phpkt.expressions.assignables.SimpleVariable
 import com.github.gabrielshanahan.phpkt.statements.CompoundStatement
 import com.github.gabrielshanahan.phpkt.statements.blocks.Block

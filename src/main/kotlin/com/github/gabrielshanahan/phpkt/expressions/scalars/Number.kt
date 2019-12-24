@@ -1,6 +1,6 @@
 package com.github.gabrielshanahan.phpkt.expressions.scalars
 
-import com.github.gabrielshanahan.phpkt.expressions.Expression
+import com.github.gabrielshanahan.phpkt.Expression
 import kotlin.String
 
 /**
