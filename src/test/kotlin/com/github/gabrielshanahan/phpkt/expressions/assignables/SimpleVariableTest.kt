@@ -6,10 +6,10 @@ import io.kotlintest.shouldThrow
 import io.kotlintest.specs.StringSpec
 import io.kotlintest.tables.row
 
-class VariableTest : StringSpec({
+class SimpleVariableTest : StringSpec({
     "Variables are printed correctly" {
-        Variable("test1").toPhpStr() shouldBe "\$test1"
-        Variable("_test1").toPhpStr() shouldBe "\$_test1"
+        SimpleVariable("test1").toPhpStr() shouldBe "\$test1"
+        SimpleVariable("_test1").toPhpStr() shouldBe "\$_test1"
     }
 
     "Variable names are checked accordingly" {
@@ -26,17 +26,13 @@ class VariableTest : StringSpec({
             invalidName("a*3"),
             invalidName("b+5")
         ) { name, msg ->
-            shouldThrow<Variable.InvalidVariableName> {
-                Variable(name)
+            shouldThrow<Assignable.InvalidVariableName> {
+                SimpleVariable(name)
             }.message shouldBe msg
         }
     }
 
     "Variables can be created directly from strings" {
-        `$`("x") shouldBe Variable("x")
-    }
-
-    "Accessing array elements works" {
-        `$`("x")[3]["a"][null][`$`("y")].toPhpStr() shouldBe """${'$'}x[3]["a"][][${'$'}y]"""
+        `$`("x") shouldBe SimpleVariable("x")
     }
 })

@@ -2,7 +2,7 @@ package com.github.gabrielshanahan.phpkt.statements
 
 import com.github.gabrielshanahan.phpkt.Node
 import com.github.gabrielshanahan.phpkt.expressions.Expression
-import com.github.gabrielshanahan.phpkt.expressions.assignables.Variable
+import com.github.gabrielshanahan.phpkt.expressions.assignables.SimpleVariable
 import com.github.gabrielshanahan.phpkt.expressions.assignments.Assignment
 import com.github.gabrielshanahan.phpkt.expressions.scalars.Number
 import com.github.gabrielshanahan.phpkt.expressions.scalars.String
@@ -43,19 +43,19 @@ open class CompoundStatement(
      *
      * @param rhs The right hand side
      */
-    infix fun Variable.`=`(rhs: Expression) = +Assignment(this, rhs)
+    infix fun SimpleVariable.`=`(rhs: Expression) = +Assignment(this, rhs)
 
     /**
      * Overload for Strings
      *
      * @param rhs The right hand side
      */
-    infix fun Variable.`=`(rhs: kotlin.String) = +Assignment(this, String(rhs))
+    infix fun SimpleVariable.`=`(rhs: kotlin.String) = +Assignment(this, String(rhs))
 
     /**
      * Overload for Numbers
      *
      * @param rhs The right hand side
      */
-    infix fun Variable.`=`(rhs: kotlin.Number) = +Assignment(this, Number(rhs))
+    infix fun SimpleVariable.`=`(rhs: kotlin.Number) = +Assignment(this, Number(rhs))
 }
