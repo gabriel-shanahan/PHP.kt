@@ -6,13 +6,13 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.StringSpec
 
 class FunctionCallTest : StringSpec({
-    val functionCall = FunctionCall("test", listOf("one".phpObj, 2.phpObj, `$`("three")))
+    val functionCall = FunctionCall("test", listOf("one".phpObj, "two".phpObj, 3.phpObj, `$`("four")))
 
     "Function calls render as expected" {
-        functionCall.toPhpStr() shouldBe """test("one", 2, ${'$'}three)"""
+        functionCall.toPhpStr() shouldBe """test("one", "two", 3, ${'$'}four)"""
     }
 
     "Iterative building up of functions works" {
-        "test" `$` "one".phpObj `,` 2.phpObj `,` `$`("three") shouldBe functionCall
+        "test" `$` "one".phpObj `,` "two" `,` 3 `,` `$`("four") shouldBe functionCall
     }
 })
