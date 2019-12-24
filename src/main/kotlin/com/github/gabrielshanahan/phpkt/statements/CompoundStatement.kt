@@ -2,7 +2,7 @@ package com.github.gabrielshanahan.phpkt.statements
 
 import com.github.gabrielshanahan.phpkt.Node
 import com.github.gabrielshanahan.phpkt.expressions.Expression
-import com.github.gabrielshanahan.phpkt.expressions.Variable
+import com.github.gabrielshanahan.phpkt.expressions.assignables.Variable
 import com.github.gabrielshanahan.phpkt.expressions.assignments.Assignment
 import com.github.gabrielshanahan.phpkt.expressions.scalars.Number
 import com.github.gabrielshanahan.phpkt.expressions.scalars.String

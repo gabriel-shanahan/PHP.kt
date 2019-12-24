@@ -1,6 +1,6 @@
 package com.github.gabrielshanahan.phpkt.statements.constructs.branching
 
-import com.github.gabrielshanahan.phpkt.expressions.`$`
+import com.github.gabrielshanahan.phpkt.expressions.assignables.`$`
 import com.github.gabrielshanahan.phpkt.expressions.assignments.`=`
 import com.github.gabrielshanahan.phpkt.invoke
 import com.github.gabrielshanahan.phpkt.statements.CompoundStatement

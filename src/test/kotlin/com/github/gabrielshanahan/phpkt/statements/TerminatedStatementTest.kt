@@ -1,6 +1,6 @@
 package com.github.gabrielshanahan.phpkt.statements
 
-import com.github.gabrielshanahan.phpkt.expressions.`$`
+import com.github.gabrielshanahan.phpkt.expressions.assignables.`$`
 import com.github.gabrielshanahan.phpkt.expressions.assignments.`=`
 import io.kotlintest.shouldBe
 import io.kotlintest.specs.StringSpec

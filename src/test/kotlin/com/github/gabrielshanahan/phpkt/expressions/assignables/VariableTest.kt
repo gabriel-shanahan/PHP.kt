@@ -1,4 +1,4 @@
-package com.github.gabrielshanahan.phpkt.expressions
+package com.github.gabrielshanahan.phpkt.expressions.assignables
 
 import io.kotlintest.data.forall
 import io.kotlintest.shouldBe
