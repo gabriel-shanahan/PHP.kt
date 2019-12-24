@@ -28,7 +28,10 @@ open class CompoundStatement(
      */
     operator fun Node.unaryPlus() {
         this@CompoundStatement.children.add(
-            if (this is Expression) TerminatedStatement(this) else this
+            when(this) {
+                is Expression -> TerminatedStatement(this)
+                is Statement -> this
+            }
         )
     }
 
