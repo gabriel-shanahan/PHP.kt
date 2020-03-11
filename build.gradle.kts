@@ -12,6 +12,9 @@ plugins {
 
 repositories {
     mavenCentral()
+    maven {
+        url = uri("https://oss.sonatype.org/content/repositories/snapshots/")
+    }
     jcenter()
 }
 
@@ -26,6 +29,7 @@ dependencies {
 
     // This is needed due to a known issue with KotlinTest: https://github.com/kotlintest/kotlintest/issues/639
     testImplementation("org.slf4j", "slf4j-simple", "1.7.26")
+    implementation("io.github.gabrielshanahan", "moroccode", "1.0.0-SNAPSHOT")
 
     // Adds detekt wrapper around ktlint
     detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.0.1")

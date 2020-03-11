@@ -3,6 +3,7 @@ package com.github.gabrielshanahan.phpkt.expressions.assignables
 import com.github.gabrielshanahan.phpkt.Expression
 import com.github.gabrielshanahan.phpkt.expressions.scalars.Number
 import com.github.gabrielshanahan.phpkt.expressions.scalars.String
+import java.util.*
 
 /**
  * An indexed variable with name [name], such as `$a["b"][]`.
@@ -10,7 +11,7 @@ import com.github.gabrielshanahan.phpkt.expressions.scalars.String
  * @param name The name of the variable.
  * @param indices Holds the indices used when accessing this variable as an array (or null when [] should be rendered).
  */
-data class IndexedVariable(
+class IndexedVariable(
     private val name: kotlin.String,
     val indices: MutableList<Expression?>
 ) : Assignable(name) {
@@ -18,6 +19,13 @@ data class IndexedVariable(
     override fun toPhpStr(): kotlin.String = super.toPhpStr() + indices.joinToString("") {
         "[" + (it?.toPhpStr() ?: "") + "]"
     }
+
+    override fun equals(other: Any?): Boolean =
+        super.equals(other) &&
+        other is IndexedVariable &&
+        indices == other.indices
+
+    override fun hashCode(): Int = Objects.hash(name, indices)
 }
 
 /**

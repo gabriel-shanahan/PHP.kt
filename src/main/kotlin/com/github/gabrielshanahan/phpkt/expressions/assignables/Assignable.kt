@@ -1,6 +1,7 @@
 package com.github.gabrielshanahan.phpkt.expressions.assignables
 
 import com.github.gabrielshanahan.phpkt.Expression
+import java.util.*
 
 /**
  * The base class for PHP assignables with the name [name].
@@ -38,6 +39,10 @@ abstract class Assignable(private val name: String) : Expression() {
     }
 
     override fun toPhpStr(): String = "\$$name"
+
+    override fun equals(other: Any?): Boolean = other is Assignable && other.name == name
+
+    override fun hashCode(): Int = Objects.hash(name)
 
     /**
      * Thrown when an invalid variable name is passed to Variable constructor.

@@ -7,7 +7,7 @@ package com.github.gabrielshanahan.phpkt.expressions.assignables
  *
  * @param name The name of the variable.
  */
-data class SimpleVariable(val name: String) : Assignable(name)
+class SimpleVariable(val name: String) : Assignable(name)
 
 /**
  * Helper function to convert Kotlin strings to PHP Variable objects.
